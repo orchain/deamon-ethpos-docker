@@ -1,9 +1,8 @@
 ### 0 clone code
 ```shell
 cd /opt
-git clone https://github.com/dachengcheng2022/deamon-ethpos-docker.git
+git clone https://github.com/orchain/deamon-ethpos-docker.git
 cd deamon-ethpos-docker
-git checkout release
 ```
 ### auto startup
 ### 1 update config.yml EXTIP

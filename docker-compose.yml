@@ -7,8 +7,8 @@ services:
       dockerfile: staking-cli-docker/Dockerfile
       args:
         DATA_DIR: "/basicconfig"
-        VERSION: master
-        SOURCE_CODE: "https://github.com/oris-chain/staking-deposit-cli.git"
+        VERSION: main
+        SOURCE_CODE: "https://github.com/orchain/staking-deposit-cli.git"
         SYMBOL: CLI
     volumes:
       - ./basicconfig:/basicconfig
@@ -21,8 +21,8 @@ services:
       args:
         CONFIG_BASE_DIR: "/basicconfig"
         DATA_DIR: "/execution"
-        SOURCE_CODE: "https://github.com/oris-chain/go-ethereum.git"
-        VERSION: release-v1.13.5
+        SOURCE_CODE: "https://github.com/orchain/go-ethereum.git"
+        VERSION: main
         SYMBOL: ETH
     volumes:
       - ./basicconfig:/basicconfig 
@@ -37,8 +37,8 @@ services:
       dockerfile: consensus-docker-base/Dockerfile
       args:
         CONFIG_BASE_DIR: "/basicconfig"
-        VERSION: release-v4.1.2
-        SOURCE_CODE: "https://github.com/oris-chain/prysm.git"
+        VERSION: main
+        SOURCE_CODE: "https://github.com/orchain/prysm.git"
         SYMBOL: BEACON
     volumes:
       - ./basicconfig:/basicconfig
@@ -98,8 +98,8 @@ services:
       dockerfile: contract-docker-base/Dockerfile
       args:
         DATA_DIR: "/basicconfig"
-        VERSION: master
-        SOURCE_CODE: "https://github.com/oris-chain/ethereal"
+        VERSION: main
+        SOURCE_CODE: "https://github.com/orchain/ethereal"
         SYMBOL: CLI
     volumes:
       - ./basicconfig:/basicconfig
