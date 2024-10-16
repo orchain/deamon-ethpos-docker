@@ -16,7 +16,7 @@ echo "VALIDATOR_MINER_FEE_ADDRESS: $VALIDATOR_MINER_FEE_ADDRESS"
 sed -i "s/EXTIP: \"[^\"]*\"/EXTIP: \"$EXT_IP\"/" docker-compose.yml
 sed -i "s/FEE_RECIPIENT: \"[^\"]*\"/FEE_RECIPIENT: \"$VALIDATOR_MINER_FEE_ADDRESS\"/" docker-compose.yml
 sed -i "s/HOST_IP: [^ ]*/HOST_IP: $EXT_IP/" docker-compose.yml
-sed -i "s/PEER_IP_LIST: [^]*/PEER_IP_LIST: $PEER_IP_LIST/" docker-compose.yml
+sed -i "s/PEER_IP_LIST: [^ ]*/PEER_IP_LIST: $PEER_IP_LIST/" docker-compose.yml
 sed -i "s|https://testwalletapi.orex.work/api/common/v1/ping|$HEART_BEAT|g" consensus-docker/resources/start_validator.sh
 sed -i "s|https://raw.githubusercontent.com/orchain/genesis-ethpos-docker/main/public/genesis.json|$GENESIS_JSON|g" execution-docker-base/resources/eth_init.sh
 sed -i "s|https://raw.githubusercontent.com/orchain/genesis-ethpos-docker/main/public/genesis.ssz|$GENESIS_SSZ|g" consensus-docker/resources/start_beacon.sh
