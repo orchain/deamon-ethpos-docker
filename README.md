@@ -37,7 +37,7 @@ echo "" | docker-compose run  staking-cli \
 --language=English \
 --non_interactive \
 existing-mnemonic \
---folder /basicconfig/test \
+--folder /basicconfig/ \
 --mnemonic="sniff goose latin finish gadget dentist theme wet that nut border glad funny february bean net loud sign practice off rigid razor icon game" \
 --keystore_password=12345678 \
 --chain="mainnet" \
