@@ -43,7 +43,8 @@ beacon-chain \
   --p2p-static-id  \
   --peer=${PEER_INFO} \
   --pprof \
-  --pprofaddr=0.0.0.0
+  --pprofaddr=0.0.0.0 \
+  --slasher
 
 echo "beacon starting endding "
 

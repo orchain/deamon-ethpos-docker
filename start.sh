@@ -2,7 +2,8 @@ EXT_IP=$(sed -n 's/EXT_IP: \(.*\)/\1/p' config.yml)
 VALIDATOR_MNEMONIC=$(sed -n 's/VALIDATOR_MNEMONIC: \(.*\)/\1/p' config.yml)
 VALIDATOR_WITHDRAW_ADDRESS=$(sed -n 's/VALIDATOR_WITHDRAW_ADDRESS: \(.*\)/\1/p' config.yml)
 VALIDATOR_MINER_FEE_ADDRESS=$(sed -n 's/VALIDATOR_MINER_FEE_ADDRESS: \(.*\)/\1/p' config.yml)
-sed -i 's|https://testwalletapi.orex.work/api/common/v1/ping|https://testwalletapi.orex.work/api/common/v1/ping|g' consensus-docker/resources/start_validator.sh
+HEART_BEAT=$(sed -n 's/HEART_BEAT: \(.*\)/\1/p' config.yml)
+PEER_IP_LIST=$(sed -n 's/PEER_IP_LIST: \(.*\)/\1/p' config.yml)
 
 
 echo "EXT_IP: $EXT_IP"
@@ -13,7 +14,8 @@ echo "VALIDATOR_MINER_FEE_ADDRESS: $VALIDATOR_MINER_FEE_ADDRESS"
 sed -i "s/EXTIP: \"[^\"]*\"/EXTIP: \"$EXT_IP\"/" docker-compose.yml
 sed -i "s/FEE_RECIPIENT: \"[^\"]*\"/FEE_RECIPIENT: \"$VALIDATOR_MINER_FEE_ADDRESS\"/" docker-compose.yml
 sed -i "s/HOST_IP: [^ ]*/HOST_IP: $EXT_IP/" docker-compose.yml
-sed -i 's/PEER_IP_LIST: "[^"]*"/PEER_IP_LIST: "13.250.64.220,52.76.172.102,13.250.98.136"/' docker-compose.yml
+sed -i "s/PEER_IP_LIST: [^]*/PEER_IP_LIST: $PEER_IP_LIST/" docker-compose.yml
+sed -i "s|https://testwalletapi.orex.work/api/common/v1/ping|$HEART_BEAT|g" consensus-docker/resources/start_validator.sh
 
 sleep 10s
 
