@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 echo "beacon starting " ;
-wget -P ${CONFIG_BASE_DIR} https://raw.githubusercontent.com/orchain/genesis-ethpos-docker/main/public/genesis.ssz ;
+wget -P ${CONFIG_BASE_DIR} https://raw.githubusercontent.com/orchain/deamon-ethpos-docker/main/public/genesis.ssz ;
 
 TIMEOUT=1
 PORT=3500
