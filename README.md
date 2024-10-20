@@ -79,9 +79,11 @@ docker-compose run contract-cli ethereal beacon deposit  --allow-unknown-contrac
 --connection=http://52.76.172.102:8545/  \
 --data="/basicconfig/validator_keys/deposit_data.json"  \
 --from="0x943fA1E47Df2759244A85cDb49370F5f5812D74D" \
---privatekey="0x19d69973a1fc35ae1265f0977c7de7bedfc74d5061076c8caa11ea5c9a01e909"
+--privatekey="0x19d69973a1fc35ae1265f0977c7de7bedfc74d5061076c8caa11ea5c9a01e909" \
+--max-fee-per-gas=51000000000000 \
+--priority-fee-per-gas="5100 gwei"
 ```
 or powershell
 ```shell
-docker-compose run contract-cli ethereal beacon deposit  --allow-unknown-contract="true" --allow-excessive-deposit="true" --address="0x3e839677d23d9b7b0df00ed0c67750aa6412b75d" --connection=http://190.92.198.117:8545/ --data="/basicconfig/validator_keys/deposit_data.json" --value="1024" --from="0x123463a4B065722E99115D6c222f267d9cABb524" --privatekey="2e0834786285daccd064ca17f1654f67b4aef298acbb82cef9ec422fb4975622" --max-fee-per-gas=5100000000000
+docker-compose run contract-cli ethereal beacon deposit  --allow-unknown-contract="true" --allow-excessive-deposit="true" --address="0x3e839677d23d9b7b0df00ed0c67750aa6412b75d" --connection=http://52.76.172.102:8545/ --data="/basicconfig/validator_keys/deposit_data.json" --value="1024" --from="0x123463a4B065722E99115D6c222f267d9cABb524" --privatekey="2e0834786285daccd064ca17f1654f67b4aef298acbb82cef9ec422fb4975622" --max-fee-per-gas=5100000000000
 ```
