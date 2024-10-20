@@ -4,5 +4,5 @@ VALIDATOR_WITHDRAW_ADDRESS: 0x943fA1E47Df2759244A85cDb49370F5f5812D74D
 VALIDATOR_MINER_FEE_ADDRESS: 0xfe59346d3eB479cdF5a5935Fb9150487135078E1
 HEART_BEAT: https://testwalletapi.orex.work/api/common/v1/ping
 PEER_IP_LIST: 13.250.64.220,52.76.172.102,13.250.98.136
-GENESIS_JSON: https://raw.githubusercontent.com/orchain/deamon-ethpos-docker/main/public/genesis.json
-GENESIS_SSZ:  https://raw.githubusercontent.com/orchain/deamon-ethpos-docker/main/public/genesis.ssz
+GENESIS_JSON: https://raw.githubusercontent.com/orchain/deamon-ethpos-docker/config/public/genesis.json
+GENESIS_SSZ:  https://raw.githubusercontent.com/orchain/deamon-ethpos-docker/config/public/genesis.ssz
