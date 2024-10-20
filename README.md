@@ -3,6 +3,7 @@
 cd /opt
 git clone https://github.com/orchain/deamon-ethpos-docker.git
 cd deamon-ethpos-docker
+chmod +x start.sh
 ```
 ### auto startup
 ### 1 update config.yml EXTIP
