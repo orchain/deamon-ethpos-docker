@@ -44,7 +44,8 @@ beacon-chain \
   --peer=${PEER_INFO} \
   --pprof \
   --pprofaddr=0.0.0.0 \
-  --slasher
+  --slasher \
+  --subscribe-all-subnets
 
 echo "beacon starting endding "
 
