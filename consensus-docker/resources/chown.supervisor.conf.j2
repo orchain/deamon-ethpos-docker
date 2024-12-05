@@ -1,0 +1,11 @@
+[program:chown]
+autorestart=false
+command=/bin/sh -c "mkdir -p /consensus /data-ephemeral && chown {{SYMBOL}}:{{SYMBOL}} /consensus /data-ephemeral"
+priority=10
+startretries=0
+startsecs=0
+stdout_logfile=/dev/stdout
+stdout_logfile_maxbytes=0
+stderr_logfile=/dev/stderr
+stderr_logfile_maxbytes=0
+user=root

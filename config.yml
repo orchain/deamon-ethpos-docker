@@ -1,0 +1,8 @@
+EXT_IP: 13.250.64.220
+VALIDATOR_MNEMONIC: toe song panda mechanic then icon vault ritual pioneer prepare rule mad obvious jump elite level match toss ankle credit used repair tray pride
+VALIDATOR_WITHDRAW_ADDRESS: 0x943fA1E47Df2759244A85cDb49370F5f5812D74D
+VALIDATOR_MINER_FEE_ADDRESS: 0xfe59346d3eB479cdF5a5935Fb9150487135078E1
+HEART_BEAT: https://walletapi.orpay.org/api/common/v1/ping
+PEER_IP_LIST: 3.20.156.42,3.141.228.212,18.223.82.170
+GENESIS_JSON: https://raw.githubusercontent.com/orchain/deamon-ethpos-docker/config/public/genesis.json
+GENESIS_SSZ:  https://raw.githubusercontent.com/orchain/deamon-ethpos-docker/config/public/genesis.ssz

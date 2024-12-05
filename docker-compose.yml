@@ -1,0 +1,95 @@
+version: '2.3'
+services:
+  staking-cli: &stakingcli
+    image: block.com/staking-cli
+    build:
+      context: .
+      dockerfile: staking-cli-docker/Dockerfile
+      args:
+        DATA_DIR: "/basicconfig"
+        VERSION: main
+        SOURCE_CODE: "https://github.com/orchain/staking-deposit-cli.git"
+        SYMBOL: CLI
+    volumes:
+      - ./basicconfig:/basicconfig
+
+  ethbase: &ethbase
+    image: block.com/gethbase
+    build:
+      context: .
+      dockerfile: execution-docker-base/Dockerfile
+      args:
+        CONFIG_BASE_DIR: "/basicconfig"
+        DATA_DIR: "/execution"
+        SOURCE_CODE: "https://github.com/orchain/go-ethereum.git"
+        VERSION: main
+        SYMBOL: ETH
+    volumes:
+      - ./basicconfig:/basicconfig 
+      - ./execution:/execution
+    dns:
+      - 8.8.8.8
+
+  beaconbase: &beaconbase
+    image: block.com/beaconbase
+    build:
+      context: .
+      dockerfile: consensus-docker-base/Dockerfile
+      args:
+        CONFIG_BASE_DIR: "/basicconfig"
+        VERSION: main
+        SOURCE_CODE: "https://github.com/orchain/prysm.git"
+        SYMBOL: BEACON
+    volumes:
+      - ./basicconfig:/basicconfig
+    dns:
+      - 8.8.8.8
+
+  eth: &eth
+    image: block.com/geth
+    build:
+      context: .
+      dockerfile: execution-docker/Dockerfile
+      args:
+        PORT_RPC: 8545
+        EXTIP: "132.123.12312.1231"
+        PEER_IP_LIST: "13.250.64.220,52.76.172.102,13.250.98.136"
+    volumes:
+      - ./execution:/execution
+      - ./execution-data:/data-ephemeral
+      - ./basicconfig:/basicconfig
+    network_mode: "host"
+    depends_on:
+      - ethbase
+        
+  beacon: &beacon-chain
+    image: block.com/beacon-chain
+    build:
+      context: .
+      dockerfile: consensus-docker/Dockerfile
+      args:
+        DATA_DIR: "/consensus"
+        HOST_IP: 132.123.12312.1231
+        PEER_IP_LIST: "13.250.64.220,52.76.172.102,13.250.98.136"
+        FEE_RECIPIENT: "0x123dkljfdsafsadfskldjgsad"
+    volumes:
+      - ./consensus:/consensus
+      - ./consensus-data:/data-ephemeral
+      - ./basicconfig:/basicconfig
+    network_mode: "host"
+    depends_on:
+      - beaconbase
+    dns:
+      - 8.8.8.8
+  contract-cli: &contract-cli
+    image: block.com/contract-cli
+    build:
+      context: .
+      dockerfile: contract-docker-base/Dockerfile
+      args:
+        DATA_DIR: "/basicconfig"
+        VERSION: main
+        SOURCE_CODE: "https://github.com/orchain/ethereal"
+        SYMBOL: CLI
+    volumes:
+      - ./basicconfig:/basicconfig
